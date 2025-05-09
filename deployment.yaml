@@ -13,10 +13,10 @@
 
 resources:
 # Firewall rules
-- name: authd-firewall-django
+- name: authd-sprint-3-firewall-django
   type: compute.v1.firewall
   properties:
-    network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    network: https://www.googleapis.com/compute/v1/projects/isis2503-talleres-451604/global/networks/default
     priority: 1000
     direction: INGRESS
     sourceRanges: 
@@ -27,10 +27,10 @@ resources:
     - IPProtocol: TCP
       ports: 
       - 8080
-- name: authd-firewall-db
+- name: authd-sprint-3-firewall-db
   type: compute.v1.firewall
   properties:
-    network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    network: https://www.googleapis.com/compute/v1/projects/isis2503-talleres-451604/global/networks/default
     priority: 1000
     direction: INGRESS
     sourceTags: 
@@ -44,10 +44,10 @@ resources:
 
 # Database instance
 - type: compute.v1.instance
-  name: authd-db-instance
+  name: authd-sprint-3-db-instance
   properties:
     zone: us-central1-a
-    machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/isis2503-talleres-451604/zones/us-central1-a/machineTypes/e2-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -56,7 +56,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/isis2503-talleres-451604/global/networks/default
       networkIP: 10.128.0.60
       accessConfigs:
       - name: External NAT
@@ -80,10 +80,10 @@ resources:
 
 # Monitoring app django instance
 - type: compute.v1.instance
-  name: authd-django-instance
+  name: authd-sprint-3-django-instance
   properties:
     zone: us-central1-a
-    machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/isis2503-talleres-451604/zones/us-central1-a/machineTypes/e2-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -92,7 +92,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/isis2503-talleres-451604/global/networks/default
       networkIP: 10.128.0.61
       accessConfigs:
       - name: External NAT
@@ -109,7 +109,7 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /labs
           cd /labs
-          sudo git clone https://github.com/ISIS2503/ISIS2503-MonitoringApp-Auth0.git
+          sudo git clone https://github.com/samuelescobar-7/ISIS2503-MonitoringApp-Auth0.git
           cd ISIS2503-MonitoringApp-Auth0
           sudo pip3 install -r requirements.txt
           sudo python3 manage.py makemigrations

@@ -4,10 +4,10 @@
 <div class="content">
     <div class="">
         <div class="page-header-title">
-            <h4 class="page-title">Measurements</h4>
+            <h4 class="page-title">Admissions</h4>
             <div style="text-align:right;">
                 <button type="button" class="btn btn-success waves-effect waves-light"
-                        onClick=" window.location.href='/measurementcreate' " style="text-align:center;">+
+                        onClick=" window.location.href='/admissioncreate' " style="text-align:center;">+
                 </button>
             </div>
         </div>
@@ -24,22 +24,28 @@
                     <table class="table table-hover">
                         <thead>
                         <tr style="color:#0E2EB0">
-                            <th font color="red">Variable</th>
-                            <th>Value</th>
-                            <th>Unit</th>
-                            <th>Place</th>
-                            <th>Date Time</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Blood Type</th>
+                            <th>Admission Date</th>
+                            <th>Admission Age</th>
+                            <th>Reason</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for measurement in measurement_list %}
+                        {% for admission in admission_list %}
                         <tr>
-                            <td>{{ measurement.variable.name }}</td>
-                            <td>{{ measurement.value }}</td>
-                            <td>{{ measurement.unit }}</td>
-                            <td>{{ measurement.place }}</td>
-                            <td>{{ measurement.dateTime }}</td>
+                            <td>{{ admission.first_name }}</td>
+                            <td>{{ admission.last_name }}</td>
+                            <td>{{ admission.age }}</td>
+                            <td>{{ admission.blood_type }}</td>
+                            <td>{{ admission.admission_date }}</td>
+                            <td>{{ admission.admission_age }}</td>
+                            <td>{{ admission.reason }}</td>
+                            <td>{{ admission.status }}</td>
                         </tr>
                         {% endfor %}
 

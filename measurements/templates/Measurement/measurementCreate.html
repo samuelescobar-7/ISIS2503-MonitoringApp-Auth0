@@ -1,12 +1,21 @@
-{% extends 'base.html' %} 
-{% block content %} 
-<form method="POST"> 
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content">
+  <div class="page-header-title">
+    <h4 class="page-title">Create Admission</h4>
+  </div>
+
+  <form method="POST">
     {% csrf_token %}
     <br>
-    {{ form.as_p }} 
-    <button type="submit" class="btn btn-success waves-effect waves-light">Create</button>
-    <button type="button" class="btn btn-primary waves-effect waves-light"
-                                onClick=" window.location.href='/measurements' ">Back
-    </button>
-</form> 
+    {{ form.as_p }}
+
+    <div class="form-group" style="margin-top:20px;">
+      <button type="submit" class="btn btn-success waves-effect waves-light">Create</button>
+      <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location.href='/admissions'">Back</button>
+    </div>
+  </form>
+</div>
+
 {% endblock %}
